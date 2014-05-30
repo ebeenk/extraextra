@@ -1,11 +1,11 @@
-<h1>Listing listings</h1>
+<h1>Listings</h1>
 
 <table>
   <thead>
     <tr>
       <th>Title</th>
-      <th>Union</th>
       <th>Age</th>
+      <th>Union</th>
       <th></th>
       <th></th>
       <th></th>
@@ -16,8 +16,8 @@
     <% @listings.each do |listing| %>
       <tr>
         <td><%= listing.title %></td>
-        <td><%= listing.union %></td>
         <td><%= listing.age %></td>
+        <td><%= listing.union %></td>
         <td><%= link_to 'Show', listing %></td>
         <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
         <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
