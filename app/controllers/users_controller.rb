@@ -28,6 +28,8 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save  
+        session[:user_id] = @user.id
+        #redirect_to root_url, notice: "Thank you for signing up!"
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render action: 'show', status: :created, location: @user }
       else
@@ -67,8 +69,11 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
     end
 
+    private
+
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :age)
+      params.require(:user).permit(:name, :email, :age, :password, :password_confirmation)
     end
 end

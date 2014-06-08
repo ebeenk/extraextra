@@ -1,5 +1,12 @@
 Extraextra::Application.routes.draw do
+  get 'singup', to: 'users#new', as: 'signup'
+  get 'login', to: 'sessions#new', as: 'login'
+  get 'logout', to: 'sessions#destroy', as: 'logout'
+
+
   resources :users
+  resources :sessions
+  root :to => "listings#index"
 
   get "admin/index"
   get "sessions/new"
@@ -7,6 +14,9 @@ Extraextra::Application.routes.draw do
   get "sessions/destroy"
   get "job/index"
   resources :listings
+
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
